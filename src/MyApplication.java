@@ -5,6 +5,7 @@ public class MyApplication {
         System.out.println(ht.hash("something"));
         System.out.println(ht.get("something"));
         System.out.println(ht.contains(1));
+        System.out.println(ht.getKey(0));
 
     }
 }

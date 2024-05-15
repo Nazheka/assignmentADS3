@@ -94,13 +94,26 @@ public class MyHashTable <K, V> {
         for (int i = 0; i < chainArray.length; i++) { //loop through each bucket
             HashNode<K, V> currentNode = chainArray[i];
             while (currentNode != null) {
-                if (currentNode.value.equals(value)) {
+                if (currentNode.value.equals(value)) { //find value
                     return true;
                 }
                 currentNode = currentNode.next;
             }
         }
         return false;
+    }
+
+    public K getKey(V value) {
+        for (int i = 0; i < chainArray.length; i++) { //loop through each bucket
+            HashNode<K, V> currentNode = chainArray[i];
+            while (currentNode != null) {
+                if (currentNode.value.equals(value)) { //find value
+                    return currentNode.key;
+                }
+                currentNode = currentNode.next;
+            }
+        }
+        return null; //no such element
     }
 
 
