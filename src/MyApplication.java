@@ -4,7 +4,7 @@ public class MyApplication {
         ht.put("something", 0);
         System.out.println(ht.hash("something"));
         System.out.println(ht.get("something"));
-        System.out.println(ht.contains(0));
+        System.out.println(ht.contains(1));
 
     }
 }
