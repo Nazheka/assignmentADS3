@@ -90,6 +90,18 @@ public class MyHashTable <K, V> {
         }
     }
 
+    public boolean contains(V value) {
+        for (int i = 0; i < chainArray.length; i++) { //loop through each bucket
+            HashNode<K, V> currentNode = chainArray[i];
+            while (currentNode != null) {
+                if (currentNode.value.equals(value)) {
+                    return true;
+                }
+                currentNode = currentNode.next;
+            }
+        }
+        return false;
+    }
 
 
 
