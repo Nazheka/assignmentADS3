@@ -26,4 +26,13 @@ public class MyHashTable <K, V> {
         chainArray = new HashNode[M];
         size = 0;
     }
+
+    private int hash(K key) {
+        int hashCode = 0;
+        int prime = 31; // common prime number for evaluating hashCode
+        for (int i = 0; i < key.toString().length(); i++) { // loop through every character from the key
+            hashCode = (hashCode * prime + key.toString().charAt(i)) % M; //formula
+        }
+        return hashCode;
+    }
 }
