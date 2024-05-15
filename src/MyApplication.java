@@ -1,11 +1,8 @@
 public class MyApplication {
     public static void main(String[] args) {
-        MyHashTable<String, Integer> ht = new MyHashTable<>(10);
-        ht.put("something", 0);
-        System.out.println(ht.hash("something"));
-        System.out.println(ht.get("something"));
-        System.out.println(ht.contains(1));
-        System.out.println(ht.getKey(0));
-
+        BST<Integer, String> bin = new BST<>();
+        bin.put(4, "C");
+        bin.put(2, "I");
+        System.out.println(bin.get(2));
     }
 }

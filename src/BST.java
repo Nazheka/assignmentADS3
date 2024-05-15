@@ -40,4 +40,19 @@ public class BST <K extends Comparable<K>, V> {
         }
     }
 
+    public V get(K key) {
+        Node currentNode = root;
+        while (currentNode != null) {
+            int cmp = key.compareTo(currentNode.key);
+            if (cmp < 0) {
+                currentNode = currentNode.left;
+            } else if (cmp > 0) {
+                currentNode = currentNode.right;
+            } else {
+                return currentNode.value;
+            }
+        }
+        return null;
+    }
+
 }
