@@ -29,12 +29,12 @@ public class MyHashTable <K, V> {
 
     public int hash(K key) {
         checkKey(key);
-        int hashCode = 0;
+        int index = 0;
         int prime = 31; // common prime number for evaluating hashCode
         for (int i = 0; i < key.toString().length(); i++) { // loop through every character from the key
-            hashCode = (hashCode * prime + key.toString().charAt(i)) % M; //formula
+            index = (index * prime + key.toString().charAt(i)) % M; //formula
         }
-        return hashCode;
+        return index;
     }
 
     public void put (K key, V value) {
@@ -59,6 +59,19 @@ public class MyHashTable <K, V> {
         }
         size++;
     }
+
+    public V get(K key) {
+        int index = hash(key);
+        HashNode<K, V> currentNode = chainArray[index];
+        while (currentNode != null) { //finding node with key
+            if (currentNode.key.equals(key)) {
+                return currentNode.value;
+            }
+            currentNode = currentNode.next;
+        }
+        return null; // no such key was found
+    }
+
 
     private void checkKey(K key) {
         if (key == null) {
