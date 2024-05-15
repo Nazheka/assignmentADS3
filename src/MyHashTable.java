@@ -72,6 +72,24 @@ public class MyHashTable <K, V> {
         return null; // no such key was found
     }
 
+    public void delete(K key) {
+        int index = hash(key);
+        HashNode<K, V> currentNode = chainArray[index];
+        HashNode<K, V> previousNode = null;
+        while (currentNode != null) {
+            if (currentNode.key.equals(key)) {
+                if (previousNode == null) {
+                    chainArray[index] = currentNode.next;
+                } else {
+                    previousNode.next = currentNode.next;
+                }
+                size--;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+    }
+
 
     private void checkKey(K key) {
         if (key == null) {
